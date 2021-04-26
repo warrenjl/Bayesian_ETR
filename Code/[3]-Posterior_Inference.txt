@@ -1,0 +1,32 @@
+########################################################
+#Full Inference Set
+########################################################
+full_posterior_samples<-posterior_samples[[1]]
+for(j in 2:length(posterior_samples)){
+   full_posterior_samples<-rbind(full_posterior_samples,
+                                 posterior_samples[[j]])
+   }
+
+################################################################################################################################
+#Posterior Samples:
+#  Use These Samples to Make Posterior Inference as in any Bayesian Analysis (Posterior Summaries)
+################################################################################################################################
+beta_star_samples<-full_posterior_samples[,(substr(colnames(full_posterior_samples), 1, 9) == "beta_star")]
+delta_samples<-full_posterior_samples[,(substr(colnames(full_posterior_samples), 1, 5) == "delta")]
+sigma2_beta_star_samples<-full_posterior_samples[,(substr(colnames(full_posterior_samples), 1, 16) == "sigma2_beta_star")]
+sigma2_delta_samples<-full_posterior_samples[,(substr(colnames(full_posterior_samples), 1, 12) == "sigma2_delta")]
+sigma2_epsilon_star_samples<-full_posterior_samples[,(substr(colnames(full_posterior_samples), 1, 19) == "sigma2_epsilon_star")]
+mu_beta_star_samples<-full_posterior_samples[,(substr(colnames(full_posterior_samples), 1, 12) == "mu_beta_star")]
+mu_delta_samples<-full_posterior_samples[,(substr(colnames(full_posterior_samples), 1, 8) == "mu_delta")]
+
+###################################################################################
+#Comparing True Values with Posterior Mean Estimates (Intercepts and Change Points) 
+###################################################################################        
+par(mfrow = c(2,1))
+plot(colMeans(beta_star_samples),
+     beta_star)
+abline(0,1)
+plot(colMeans(delta_samples),
+     delta)
+abline(0,1)
+
