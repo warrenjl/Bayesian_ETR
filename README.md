@@ -1,4 +1,4 @@
-# Bayesian_ETR
+# Hierarchical Bayesian Change Points Method for Entry Time Realignment 
 
 Overview:
 
