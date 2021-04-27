@@ -1,3 +1,23 @@
+###########################################################################
+#Statistical Model
+###########################################################################
+#Y_{ij} = \beta_i*f(t_{ij} + \delta_i)\epsilon_{ij}; i=1,...,n; j=1,...,m_i
+#ln(Y_{it}) = ln(\beta_i) + ln{f(t_{ij} + \delta_i)} + ln(\epsilon_{ij})
+#           = \beta*_i + ln{f(t_{ij} + \delta_i)} + \epsilon*_{ij}
+#
+#  \epsilon*_{ij} ~ N(0, \sigma^2_{\epsilon*})
+#  \beta*_i ~ N(\mu_{\beta*}, \sigma^2_{\beta*})
+#  ln(\delta_i) ~ N(\mu_{\delta}, \sigma^2_{\delta})
+
+##############################################
+#Prior Distributions
+##############################################
+#\sigma^2_{\epsilon*}, 
+#\sigma^2_{\beta*}, 
+#\sigma^2_{\delta} ~ Inverse Gamma(0.01, 0.01)
+#\mu_{\beta*}, 
+#\mu_{\delta} ~ N(0, 100^2)
+
 ########################################################
 #Full Inference Set
 ########################################################
