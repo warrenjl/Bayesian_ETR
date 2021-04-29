@@ -1,21 +1,21 @@
-###########################################################################
+########################################################################################
 #Statistical Model
-###########################################################################
-#Y_{ij} = \beta_i*f(t_{ij} + \delta_i)\epsilon_{ij}; i=1,...,n; j=1,...,m_i
-#ln(Y_{it}) = ln(\beta_i) + ln{f(t_{ij} + \delta_i)} + ln(\epsilon_{ij})
-#           = \beta*_i + ln{f(t_{ij} + \delta_i)} + \epsilon*_{ij}
+########################################################################################
+#Y_{ij} - \beta_0 = \beta_{1i}*f(t_{ij} + \delta_i)\epsilon_{ij}; i=1,...,n; j=1,...,m_i
+#ln(Y_{it} - \beta_0) = ln(\beta_{1i}) + ln{f(t_{ij} + \delta_i)} + ln(\epsilon_{ij})
+#           = \beta*_{1i} + ln{f(t_{ij} + \delta_i)} + \epsilon*_{ij}
 #
 #  \epsilon*_{ij} ~ N(0, \sigma^2_{\epsilon*})
-#  \beta*_i ~ N(\mu_{\beta*}, \sigma^2_{\beta*})
+#  \beta*_{1i} ~ N(\mu_{\beta*_1}, \sigma^2_{\beta*_1})
 #  ln(\delta_i) ~ N(\mu_{\delta}, \sigma^2_{\delta})
 
 ##############################################
 #Prior Distributions
 ##############################################
 #\sigma^2_{\epsilon*}, 
-#\sigma^2_{\beta*}, 
+#\sigma^2_{\beta*_1}, 
 #\sigma^2_{\delta} ~ Inverse Gamma(0.01, 0.01)
-#\mu_{\beta*}, 
+#\mu_{\beta*_1}, 
 #\mu_{\delta} ~ N(0, 100^2)
 
 #############
@@ -23,16 +23,16 @@
 #############
 set.seed(785)
 
-###########################################################
+#########################################################################
 #Data Simulation
-###########################################################
+#########################################################################
 n<-100  #Number of Patients
 m<-10   #Number of Visits Per Patient
 
-#\beta*_i
-beta_star<-rnorm(n = n,
-                 mean = 2.00,  #\mu_{\beta*}
-                 sd = 0.10)    #\sigma_{\beta*}
+#\beta*_{1i}
+beta_star_1<-rnorm(n = n,
+                   mean = 2.00,  #\mu_{\beta*_1}
+                   sd = 0.10)    #\sigma_{\beta*_1}
 
 #\delta_i
 delta<-exp(rnorm(n = n,
@@ -54,8 +54,8 @@ for(j in 1:m){
    time[,j]<-j/m  #Scaled for Model Fitting Purposes
    }
 
-#ln(Y_{it}) where f(t) = t^2 (i.e., quadratic time trend)
-log_Y<-matrix(beta_star,
+#ln(Y_{it}) where f(t) = t^2 (i.e., quadratic time trend) and \beta_0 = 0
+log_Y<-matrix(beta_star_1,
               nrow = n,
               ncol = m) +
        2*log(time + matrix(delta,
@@ -63,4 +63,29 @@ log_Y<-matrix(beta_star,
                            ncol = m)) +
        epsilon_star
        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
