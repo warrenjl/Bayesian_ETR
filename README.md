@@ -1,8 +1,8 @@
-# Hierarchical Bayesian Change Points Method for Entry Time Realignment 
+# Hierarchical Bayesian Method for Entry Time Realignment 
 
 Overview:
 
-The provided code simulates data from a quadratic disease progression model, fits our newly developed hierarchical Bayesian change points model to the data, and organizes the collected posterior samples for the purposes of making posterior inference on the unknown model parameters. 
+The provided code simulates data from a quadratic disease progression model, fits our newly developed hierarchical Bayesian entry time realignment model to the data, and organizes the collected posterior samples for the purposes of making posterior inference on the unknown model parameters. 
 
 System requirements:
 - A standard computer that can install R statistical software and the R package “rjags”
