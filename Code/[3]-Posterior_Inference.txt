@@ -39,9 +39,9 @@ sigma2_epsilon_star_samples<-full_posterior_samples[,(substr(colnames(full_poste
 mu_beta_star_1_samples<-full_posterior_samples[,(substr(colnames(full_posterior_samples), 1, 12) == "mu_beta_star")]
 mu_delta_samples<-full_posterior_samples[,(substr(colnames(full_posterior_samples), 1, 8) == "mu_delta")]
 
-###################################################################################
-#Comparing True Values with Posterior Mean Estimates (Intercepts and Change Points) 
-###################################################################################        
+##########################################################################################
+#Comparing True Values with Posterior Mean Estimates (Intercepts and Alignment Parameters) 
+##########################################################################################        
 par(mfrow = c(2,1))
 plot(colMeans(beta_star_1_samples),
      beta_star_1)
