@@ -28,5 +28,9 @@ Demo:
 
 Instructions for use:
 - Import data (in similar format to the simulated data in [1]-Data_Simulation.txt) to an R script.
+
+# Reference
+* Shen LL, Del Priore LV, and Warren JL (2022). A hierarchical Bayesian entry time realignment method to study the long-term natural history of diseases. Scientific Reports, 12(1):4869.
+* https://www.nature.com/articles/s41598-022-08919-1#ethics
 - Copy R code in text document [2]-Statistical_Method.txt and [3]-Posterior_Inference.txt into an R script.
 - Run the combined R code.
